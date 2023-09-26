@@ -1,4 +1,5 @@
-import {Button} from "@/components/ui/button";
+//import {Button} from "@/components/ui/button";
+import {Button} from "@/components";
 
 export function App() {
     return(
