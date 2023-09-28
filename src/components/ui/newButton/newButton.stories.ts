@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-// import { Button } from '../../../components/ui/Button'
-import { Button } from '@/components/ui/index'
+
+import {NewButton} from "@/components/ui/newButton/newButton";
 
 const meta = {
-    title: 'Components/Button',
-    component: Button,
+    title: 'Components/NewButton',
+    component: NewButton,
     tags: ['autodocs'],
     argTypes: {
         variant: {
@@ -12,20 +12,10 @@ const meta = {
             control: { type: 'radio' },
         },
     },
-} as Meta<typeof Button>
+} as Meta<typeof NewButton>
 
 export default meta
-
 type Story = StoryObj<typeof meta>
-
-export const AsLink: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Link that looks like a button',
-        as: 'a',
-        href:"http://htmlbook.ru/example/knob.html"
-    },
-}
 
 export const Primary: Story = {
     args: {
@@ -42,7 +32,6 @@ export const Secondary: Story = {
         disabled: false,
     },
 }
-
 export const Tertiary: Story = {
     args: {
         variant: 'tertiary',
@@ -50,7 +39,6 @@ export const Tertiary: Story = {
         disabled: false,
     },
 }
-
 export const Link: Story = {
     args: {
         variant: 'link',
@@ -67,4 +55,3 @@ export const FullWidth: Story = {
         fullWidth: true,
     },
 }
-
