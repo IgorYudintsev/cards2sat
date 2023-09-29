@@ -27,21 +27,24 @@ export const Large: Story = {
 export const H1: Story = {
     args: {
         variant: 'h1',
-        children: 'Typography h1'
+        children: 'Typography h1',
+        as: 'h1',
     },
 }
 
 export const H2: Story = {
     args: {
         variant: 'h2',
-        children: 'Typography h2'
+        children: 'Typography h2',
+        as: 'h2',
     },
 }
 
 export const H3: Story = {
     args: {
         variant: 'h3',
-        children: 'Typography h3'
+        children: 'Typography h3',
+        as: 'h3'
     },
 }
 
@@ -90,13 +93,17 @@ export const Overline: Story = {
 export const Link1: Story = {
     args: {
         variant: 'link1',
-        children: 'Typography link1'
+        children: 'Typography link1',
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
     },
 }
 
 export const Link2: Story = {
     args: {
         variant: 'link2',
-        children: 'Typography link2'
+        children: 'Typography link2',
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
     },
 }
