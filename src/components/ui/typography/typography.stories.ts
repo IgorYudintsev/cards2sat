@@ -5,14 +5,13 @@ import {Typography} from "@/components/ui/typography/typography";
 const meta = {
     title: 'Components/Typography',
     component: Typography,
-    tags: ['autodocs'],
-    argTypes: {
+        argTypes: {
         variant: {
             options: ['large', 'h1'],
             control: {type: 'radio'},
         },
     },
-} as Meta<typeof Typography>
+} satisfies Meta<typeof Typography>
 
 export default meta
 type Story = StoryObj<typeof meta>

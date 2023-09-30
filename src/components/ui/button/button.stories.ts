@@ -12,7 +12,7 @@ const meta = {
             control: { type: 'radio' },
         },
     },
-} as Meta<typeof Button>
+} satisfies Meta<typeof Button>
 
 export default meta
 
