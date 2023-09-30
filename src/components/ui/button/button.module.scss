@@ -4,8 +4,16 @@
 }
 
 .primary {
-  background-color: red;
-}
+  width: 150px;
+  height: 36px;
+  top: 20px;
+  left: 20px;
+  padding: 6px 20px 6px 20px;
+  border-radius: 4px;
+  gap: 10px;
+  background: #8C61FF;
+  box-shadow: 0 4px 18px 0 #8C61FF59;
+ }
 
 .secondary {
   background-color: green;
