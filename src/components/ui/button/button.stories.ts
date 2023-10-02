@@ -46,7 +46,7 @@ export const Secondary: Story = {
 export const Tertiary: Story = {
     args: {
         variant: 'tertiary',
-        children: 'Tertiary Button',
+        children: 'Tertiary',
         disabled: false,
     },
 }
@@ -54,8 +54,10 @@ export const Tertiary: Story = {
 export const Link: Story = {
     args: {
         variant: 'link',
-        children: 'Tertiary Button',
+        children: 'link Button',
         disabled: false,
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
     },
 }
 
