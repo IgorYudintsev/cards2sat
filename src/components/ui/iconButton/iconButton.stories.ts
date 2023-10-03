@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
+// import { Button } from '../../../components/ui/Button'
 
-import {NewButton} from "@/components/ui/newButton/newButton";
+import {IconButton} from "@/components/ui/iconButton/iconButton.tsx";
 
 const meta = {
-    title: 'Components/NewButton',
-    component: NewButton,
+    title: 'Components/IconButton',
+    component: IconButton,
     tags: ['autodocs'],
     argTypes: {
         variant: {
@@ -12,10 +13,20 @@ const meta = {
             control: { type: 'radio' },
         },
     },
-} as Meta<typeof NewButton>
+} satisfies Meta<typeof IconButton>
 
 export default meta
+
 type Story = StoryObj<typeof meta>
+
+export const AsLink: Story = {
+    args: {
+        variant: 'primary',
+        children: 'Link that looks like a button',
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
+    },
+}
 
 export const Primary: Story = {
     args: {
@@ -32,18 +43,22 @@ export const Secondary: Story = {
         disabled: false,
     },
 }
+
 export const Tertiary: Story = {
     args: {
         variant: 'tertiary',
-        children: 'Tertiary Button',
+        children: 'Tertiary',
         disabled: false,
     },
 }
+
 export const Link: Story = {
     args: {
         variant: 'link',
-        children: 'Tertiary Button',
+        children: 'link Button',
         disabled: false,
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
     },
 }
 
@@ -55,3 +70,4 @@ export const FullWidth: Story = {
         fullWidth: true,
     },
 }
+
