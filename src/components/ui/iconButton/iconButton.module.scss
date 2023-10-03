@@ -1,10 +1,15 @@
 .iconButton{
   all: unset;
   cursor: pointer;
+
+
 }
 
 .primary {
-  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 176px;
   height: 36px;
   top: 20px;
   left: 20px;
