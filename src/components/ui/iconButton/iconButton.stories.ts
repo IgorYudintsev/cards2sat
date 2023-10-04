@@ -19,14 +19,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const AsLink: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Link that looks like a button',
-        as: 'a',
-        href:"http://htmlbook.ru/example/knob.html"
-    },
-}
 
 export const Primary: Story = {
     args: {
@@ -36,38 +28,12 @@ export const Primary: Story = {
     },
 }
 
-export const Secondary: Story = {
+export const PrimaryGray: Story = {
     args: {
-        variant: 'secondary',
-        children: 'Secondary Button',
+        variant: 'primaryGray',
+        children: 'PrimaryGr But',
         disabled: false,
     },
 }
 
-export const Tertiary: Story = {
-    args: {
-        variant: 'tertiary',
-        children: 'T',
-        disabled: false,
-    },
-}
-
-export const Link: Story = {
-    args: {
-        variant: 'link',
-        children: 'link Button',
-        disabled: false,
-        as: 'a',
-        href:"http://htmlbook.ru/example/knob.html"
-    },
-}
-
-export const FullWidth: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Full Width Button',
-        disabled: false,
-        fullWidth: true,
-    },
-}
 
