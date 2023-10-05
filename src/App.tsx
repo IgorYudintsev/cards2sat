@@ -10,6 +10,5 @@ export function App() {
             <Typography as={'h1'} variant={'h1'}>h1 h1 h1 h1 h1 </Typography>
             <Typography as={'a'} variant={'link1'} href={"http://htmlbook.ru/example/knob.html"}>link1 link1 </Typography>
         </div>
-
     )
 }
