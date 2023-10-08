@@ -1,6 +1,6 @@
 //import {Button} from "@/components/ui/button";
 import {Button} from "@/components";
-import {Typography} from "@/components/ui/typography";
+import {Typography} from "@/components";
 
 export function App() {
     return(

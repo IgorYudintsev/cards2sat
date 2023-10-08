@@ -1,0 +1,49 @@
+.button {
+  all: unset;
+}
+
+.primary {
+  width: 1625px;
+  height: 74px;
+  top: 154px;
+  left: 21px;
+  border: 1px;
+  background: var(--color-light-100);
+  color:  var(--color-dark-900);
+
+
+
+
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--black-a7);
+
+  gap: 10px;
+  //background: var(--color-accent-500);
+  //box-shadow: 0 4px 18px 0 var(--color-accent-900);
+  //cursor: pointer;
+
+  &:hover {
+    background-color: var(--violet-3);
+    //background-color: var(--color-accent-300);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px black;
+    //background-color: var(--color-accent-700);
+  }
+
+  &:active {
+    //background-color: #0a6638;
+    //background-color: var(--color-accent-700);
+  }
+
+  &:disabled {
+    //color: var(--color-accent-100);
+    //background-color: var( --color-accent-900);
+  }
+}
