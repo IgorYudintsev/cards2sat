@@ -7,7 +7,7 @@ const meta = {
     tags: ['auto-docs'],
     argTypes: {
         variant: {
-            options: ['primary', 'secondary', 'tertiary', 'link'],
+            options: [],
             control: { type: 'radio' },
         },
     },
@@ -18,8 +18,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const ClassicCheckBox: Story = {
-    args: {
-        variant: 'primary',
-        children: 'Link that looks like a button',
-           },
+
 }
