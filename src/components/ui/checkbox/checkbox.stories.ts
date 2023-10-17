@@ -5,12 +5,7 @@ const meta = {
     title: 'Components/CheckBox',
     component: CheckBox,
     tags: ['auto-docs'],
-    argTypes: {
-        variant: {
-            options: [],
-            control: { type: 'radio' },
-        },
-    },
+    argTypes: {},
 } satisfies Meta<typeof CheckBox>
 
 export default meta
@@ -18,5 +13,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const ClassicCheckBox: Story = {
-
+    args: {
+        checked: true,
+        disabled: false,
+    },
 }
