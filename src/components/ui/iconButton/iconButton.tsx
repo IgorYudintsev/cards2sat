@@ -1,17 +1,16 @@
-import {ComponentPropsWithoutRef, ElementType} from 'react'
+import React from 'react'
 import logOuticon from './assets/logOut.svg'
 import s from './iconButton.module.scss'
 
 
-export type ButtonProps<T extends ElementType = 'button'> = {
-    //as?: T
-    variant?: 'primary' | 'primaryGray'
+export type ButtonProps = {
+     variant?: 'primary' | 'primaryGray'
     fullWidth?: boolean
     className?: string
-} & ComponentPropsWithoutRef<T>
+}
 
-export const IconButton = <T extends ElementType = 'button'>(
-    props: ButtonProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>
+export const IconButton:React.FC  <ButtonProps>=(
+    props
 ) => {
     const {variant = 'primary', fullWidth, className, ...rest} = props
 

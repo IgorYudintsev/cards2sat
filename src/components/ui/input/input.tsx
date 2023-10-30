@@ -1,4 +1,5 @@
 import s from "@/components/ui/input/input.module.scss";
+import {useState} from "react";
 
 
 export type InputProps = {
@@ -7,8 +8,23 @@ export type InputProps = {
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-    const {className,disabled, ...rest} = props
+    const {className, disabled, ...rest} = props
+
+    const [error, setError] = useState(true)
+
+    const styles = `
+    ${s.main}
+    ${error ? s.colorError : s.colorDefault}
+        `
+
+
     return (
-        <input   disabled={disabled} className={` ${className} ${s.main}`}   {...rest} />
+        <input
+            disabled={disabled}
+            className={` ${className} ${styles}`}
+
+            {...rest}
+
+        />
     )
 }

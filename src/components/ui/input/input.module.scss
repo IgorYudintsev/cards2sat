@@ -1,9 +1,8 @@
+
 .main {
-  background: var(--color-dark-900);
+  outline: none;
   top: 154px;
   left: 21px;
-  border: 2px solid var(--color-dark-100);
-  color:  var(  --color-dark-100);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -18,16 +17,55 @@
 
   &:focus {
     background-color: var(--color-dark-900);
-    border: 2px solid var(--color-info-700);
   }
 
   &:active {
     background: var(--color-dark-900);
-    border: 2px solid var(--color-dark-100);
   }
 
   &:disabled {
     background-color: var(--color-dark-900);
+   }
+}
+
+
+.colorDefault {
+  background-color: var(--color-dark-900);
+  border: 2px solid var(--color-dark-100);
+  color: var(--color-dark-100);
+
+  &:focus {
+    background-color: var(--color-dark-900);
+    border: 2px solid var(--color-info-700);
+  }
+
+  &:active {
+    background-color: var(--color-dark-900);
+    border: 2px solid var(--color-dark-100);
+  }
+
+  &:disabled {
+    background-color: var(--color-dark-700);
     border: 2px solid var(--color-dark-500);
+  }
+}
+
+.colorError {
+  background-color: var(--color-dark-900);
+  border: 2px solid var(--color-danger-500);
+  color: var( --color-danger-300);
+  &:focus {
+    background-color: var(--color-dark-900);
+    border: 2px solid var(--color-danger-500);
+  }
+
+  &:active {
+    background-color: var(--color-dark-900);
+    border: 2px solid var(--color-danger-500);
+  }
+
+  &:disabled {
+    background-color: var(--color-danger-900);
+    border: 2px solid var(--color-danger-500);
   }
 }
