@@ -1,15 +1,14 @@
-import s from "@/components/ui/input/input.module.scss";
 import {useState} from "react";
+import s from "@/components/ui/input/input.module.scss";
 import {Typography} from "@/components";
-import t from '@/components/ui/typography/typography.module.scss'
+import t from "@/components/ui/typography/typography.module.scss";
 
-
-export type InputProps = {
+export type IconInputProps = {
     className?: string
     disabled?: boolean
 }
 
-export const Input: React.FC<InputProps> = (props) => {
+export const IconInput: React.FC<IconInputProps> = (props) => {
     const {className, disabled, ...rest} = props
 
     const [error, setError] = useState<string|null>('You have some Error')
@@ -26,7 +25,7 @@ export const Input: React.FC<InputProps> = (props) => {
                 className={` ${className} ${styles}`}
                 {...rest}
             />
-           <Typography as={"span"} variant={'caption'} className={t.error}>{error}</Typography>
+            <Typography as={"span"} variant={'caption'} className={t.error}>{error}</Typography>
         </>
     )
 }
