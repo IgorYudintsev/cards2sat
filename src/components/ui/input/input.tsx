@@ -12,7 +12,8 @@ export type InputProps = {
 export const Input: React.FC<InputProps> = (props) => {
     const {className, disabled, ...rest} = props
 
-    const [error, setError] = useState<string|null>('You have some Error')
+    // const [error, setError] = useState<string|null>('You have some Error')
+    const [error, setError] = useState<string|null>(null)
 
     const styles = `
     ${s.main}
