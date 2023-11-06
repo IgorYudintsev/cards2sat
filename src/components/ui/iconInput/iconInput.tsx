@@ -17,7 +17,7 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
     const [isFocused, setIsFocused] = useState(false);
     // const [error, setError] = useState<string | null>('You have some Error')
     const [error, setError] = useState<string | null>(null)
-    const [x,setX]=useState('')
+    const [x, setX] = useState('')
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -46,14 +46,14 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
                     className={stylesContainer}
                     onFocus={handleFocus} onBlur={handleBlur}>
                     <img src={searchPict} alt="searchIcon"/>
-                  <input
-                      onChange={(e)=>setX(e.currentTarget.value)}
+                    <input
+                        onChange={(e) => setX(e.currentTarget.value)}
                         value={x}
                         disabled={disabled}
                         className={` ${className} ${stylesInput}`}
                         {...rest}
                     />
-                    {x!=='' && <img src={xPict} alt="x" className={s.x} onClick={()=>setX('')}/>}
+                    {x !== '' && <img src={xPict} alt="x" className={s.x} onClick={() => setX('')}/>}
                 </div>
                 :
                 <div

@@ -10,7 +10,9 @@
 
   &:hover {
     background-color: var(--color-dark-500);
-    border: 2px solid var(--color-dark-100);
+     }
+  &:hover input {
+    background-color: var(--color-dark-500);
   }
 
   &:active {
@@ -34,13 +36,6 @@
   width: 242px;
   border: none;
   outline: none;
-  //background-color: var(--color-dark-900);
-
-
-  &:hover {
-    border: none;
-    background-color: var(--color-dark-500);
-  }
 
   &:active {
     background-color: var(--color-dark-700);
@@ -57,20 +52,6 @@
   opacity:0.5;
 }
 
-
-//.colorDefault {
-//  border: 2px solid var(--color-dark-100);
-//  color: var(--color-dark-100);
-//
-//  &:active {
-//    background-color: var(--color-dark-900);
-//    border: 2px solid var(--color-dark-700);
-//  }
-//
-//  &:disabled {
-//    background-color: var(--color-dark-500);
-//     }
-//}
 
 .colorError {
   background-color: var(--color-dark-900);
