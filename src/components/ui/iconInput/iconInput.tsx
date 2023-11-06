@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import s from "@/components/ui/iconInput/iconInput.module.scss";
 import {Typography} from "@/components";
 import t from "@/components/ui/typography/typography.module.scss";
-import search from "./assets/search.svg";
-import password from "./assets/eye.svg";
+import searchPict from "./assets/search.svg";
+import passwordPict from "./assets/eye.svg";
+import xPict from "./assets/x.svg";
 
 export type IconInputProps = {
     className?: string
@@ -13,10 +14,10 @@ export type IconInputProps = {
 
 export const IconInput: React.FC<IconInputProps> = (props) => {
     const {className, disabled = true, icon = "search", ...rest} = props
-
     const [isFocused, setIsFocused] = useState(false);
     // const [error, setError] = useState<string | null>('You have some Error')
     const [error, setError] = useState<string | null>(null)
+    const [x,setX]=useState('')
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -31,29 +32,31 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
      ${s.container}
     ${isFocused ? s.containerFocus : ''}
      ${disabled ? s.containerDisabled : ''}
-      ${error && isFocused? s.colorError : !error && isFocused? s.containerFocus :  s.colorDefault}
+      ${error && isFocused ? s.colorError : !error && isFocused ? s.containerFocus : s.colorDefault}
         `
-     const stylesInput = `
-    ${s.main}
+    const stylesInput = `
+     ${s.container}
+     ${s.main}
            `
 
     return (
         <>
             {icon === "search"
                 ? <div
-                    // style={{border: "2px solid blue"}}
                     className={stylesContainer}
                     onFocus={handleFocus} onBlur={handleBlur}>
-                    <img src={search} alt="searchIcon"/>
-                    <input
+                    <img src={searchPict} alt="searchIcon"/>
+                  <input
+                      onChange={(e)=>setX(e.currentTarget.value)}
+                        value={x}
                         disabled={disabled}
                         className={` ${className} ${stylesInput}`}
                         {...rest}
                     />
+                    {x!=='' && <img src={xPict} alt="x" className={s.x} onClick={()=>setX('')}/>}
                 </div>
                 :
                 <div
-                    // style={isFocused ?{border: "2px solid blue"}:{}}
                     className={stylesContainer}
                     onFocus={handleFocus} onBlur={handleBlur}>
                     <input
@@ -61,8 +64,8 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
                         className={` ${className} ${stylesInput}`}
                         {...rest}
                     />
-                    <img src={password} alt="passwordIcon" className={disabled ? s.icon : ''}/>
-                    {/*<img src={password} alt="passwordIcon" style={disabled ?{ opacity:'0.5'}:{}}/>*/}
+                    <img src={passwordPict} alt="passwordIcon" className={disabled ? s.icon : ''}/>
+
                 </div>
             }
 
