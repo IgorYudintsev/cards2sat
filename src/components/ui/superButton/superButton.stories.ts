@@ -7,8 +7,8 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         variant: {
-            options: ['primary','primaryIcon','PrimaryIconGrey', 'secondary', 'tertiary', 'link'],
-            control: { type: 'radio' },
+            options: ['primary', 'primaryIcon', 'primaryIconGrey', 'secondary', 'tertiary', 'link'],
+            control: {type: 'radio'},
         },
     },
 }
@@ -21,7 +21,7 @@ export const Primary: Story = {
         variant: 'primary',
         children: 'Primary Button',
         disabled: false,
-           },
+    },
 }
 
 export const PrimaryIcon: Story = {
@@ -29,16 +29,16 @@ export const PrimaryIcon: Story = {
         variant: 'primaryIcon',
         children: 'Primary Icon',
         disabled: false,
-        withIcon:true
+        withIcon: true
     },
 }
 
 export const PrimaryIconGrey: Story = {
     args: {
-        variant: 'primaryIcon',
-        children: 'primary Icon',
+        variant: 'primaryIconGrey',
+        children: 'Primary Icon Grey',
         disabled: false,
-        withIcon:true
+        withIcon: true
     },
 }
 
@@ -47,19 +47,11 @@ export const Secondary: Story = {
         variant: 'secondary',
         children: 'Secondary Button',
         disabled: false,
-        withIcon:true
     },
 }
 export const Tertiary: Story = {
     args: {
         variant: 'tertiary',
-        children: 'Tertiary Button',
-        disabled: false,
-    },
-}
-export const Link: Story = {
-    args: {
-        variant: 'link',
         children: 'Tertiary Button',
         disabled: false,
     },
@@ -73,6 +65,18 @@ export const FullWidth: Story = {
         fullWidth: true,
     },
 }
+
+export const Link: Story = {
+    args: {
+        variant: 'link',
+        children: 'Link Button',
+        disabled: false,
+        as: 'a',
+        href:"http://htmlbook.ru/example/knob.html"
+    },
+}
+
+
 
 export const AsLink: Story = {
     args: {
