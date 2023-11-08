@@ -12,14 +12,17 @@
   cursor: pointer;
 }
 
-.primary {
-  //width: 150px;
+.basic{
+  cursor: pointer;
   height: 36px;
   top: 20px;
   left: 20px;
   padding: 6px 20px 6px 20px;
   border-radius: 4px;
   gap: 10px;
+}
+
+.primary {
   background: var(--color-accent-500);
   box-shadow: 0 4px 18px 0 var(--color-accent-900);
   cursor: pointer;
@@ -41,14 +44,6 @@
 .primaryIcon {
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
-  //width: 176px;
-  height: 36px;
-  top: 20px;
-  left: 20px;
-  padding: 6px 20px 6px 20px;
-  border-radius: 4px;
-  gap: 10px;
   background: var(--color-accent-500);
   box-shadow: 0 4px 18px 0 var(--color-accent-900);
   cursor: pointer;
@@ -71,14 +66,6 @@
 .primaryIconGrey {
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
-  //width: 176px;
-  height: 36px;
-  top: 20px;
-  left: 20px;
-  padding: 6px 20px 6px 20px;
-  border-radius: 4px;
-  gap: 10px;
   background: var(--color-dark-300);
   box-shadow: 0 2px 10px 0 var(--color-dark-500);
   cursor: pointer;
@@ -98,11 +85,6 @@
 }
 
 .secondary {
-  //width: 169px;
-  height: 36px;
-  padding: 6px 15px 6px 15px;
-  border-radius: 4px;
-  gap: 10px;
   background: var(--color-dark-300);
   box-shadow: 0 2px 10px 0 var(--color-dark-500);
   cursor: pointer;
@@ -122,14 +104,6 @@
 }
 
 .tertiary {
-  //width: 169px;
-  height: 36px;
-  top: 20px;
-  left: 46px;
-  padding: 8px 28px 8px 28px;
-  border-radius: 4px;
-  border: 1px;
-  gap: 10px;
   color: var(--color-accent-100);
   background: var(--color-dark-900);
   border: 1px solid var(--color-accent-500);
@@ -153,7 +127,6 @@
 }
 
 .link {
-  //width: 156px;
   height: 36px;
   top: 20px;
   left: 46px;

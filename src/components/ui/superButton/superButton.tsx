@@ -17,15 +17,17 @@ export const SuperButton = <T extends ElementType = 'button'>(
 ) => {
     const {variant = 'primary', fullWidth, className, as: Component = 'button', withIcon = false, ...rest} = props;
 
+
+
     return (
         withIcon ?
-            <button className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest}>
+            <button className={`${s.basic} ${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest}>
                 <img src={logOuticon} alt="logOuticon"
                      className={s.icon}
                 />
                 <div className={s.text} {...rest} />
             </button>
-            : <Component className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest} />
+            : <Component className={`${s.basic} ${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest} />
 
     );
 };
