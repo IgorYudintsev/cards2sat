@@ -9,7 +9,7 @@ export type ButtonProps = {
     className?: string
 }
 
-export const IconButton:React.FC  <ButtonProps>=(
+export const IconButton:React.FC <ButtonProps>=(
     props
 ) => {
     const {variant = 'primary', fullWidth, className, ...rest} = props
