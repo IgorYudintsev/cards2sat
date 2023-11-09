@@ -4,18 +4,20 @@ import s from './iconButton.module.scss'
 
 
 export type ButtonProps = {
-     variant?: 'primary' | 'primaryGray'
+     variant?: 'primaryIcon' | 'primaryGreyIcon'
     fullWidth?: boolean
     className?: string
-}
+    children?:React.ReactNode
+    disabled?:boolean
+ }
 
 export const IconButton:React.FC <ButtonProps>=(
     props
 ) => {
-    const {variant = 'primary', fullWidth, className, ...rest} = props
+    const {variant = 'primaryIcon' , fullWidth, className,...rest} = props
 
     return (
-        <button className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`}  {...rest} >
+        <button className={`${s.basic}  ${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`}  {...rest} >
             <img src={logOuticon} alt="logOuticon" style={{marginTop:'2px',color:'white'}}/>
             <span {...rest}  />
         </button>

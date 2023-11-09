@@ -9,7 +9,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         variant: {
-            options: ['primary', 'secondary', 'tertiary', 'link'],
+            options: ['primaryIcon' , 'primaryGreyIcon'],
             control: { type: 'radio' },
         },
     },
@@ -20,18 +20,18 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 
-export const Primary: Story = {
+export const PrimaryIcon: Story = {
     args: {
-        variant: 'primary',
+        variant: 'primaryIcon',
         children: 'Primary Button',
         disabled: false,
     },
 }
 
-export const PrimaryGray: Story = {
+export const PrimaryGreyIcon: Story = {
     args: {
-        variant: 'primaryGray',
-        children: 'PrimaryGr But',
+        variant: 'primaryGreyIcon',
+        children: 'Primary Grey Button',
         disabled: false,
     },
 }

@@ -3,17 +3,21 @@
   cursor: pointer;
 }
 
-.primary {
+
+.basic{
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  width: 176px;
+  min-width: 176px;
   height: 36px;
   top: 20px;
   left: 20px;
   padding: 6px 20px 6px 20px;
   border-radius: 4px;
   gap: 10px;
+}
+
+.primaryIcon {
   background: var(--color-accent-500);
   box-shadow: 0 4px 18px 0 var(--color-accent-900);
   cursor: pointer;
@@ -32,17 +36,7 @@
   }
  }
 
-.primaryGray {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  width: 176px;
-  height: 36px;
-  top: 20px;
-  left: 20px;
-  padding: 6px 20px 6px 20px;
-  border-radius: 4px;
-  gap: 10px;
+.primaryGreyIcon {
   background: var(--color-dark-300);
   box-shadow: 0 2px 10px 0 var(--color-dark-500);
   cursor: pointer;

@@ -15,19 +15,18 @@ export type IconInputProps = {
 export const IconInput: React.FC<IconInputProps> = (props) => {
     const {className, disabled = true, icon = "search", ...rest} = props
     const [isFocused, setIsFocused] = useState(false);
-    // const [error, setError] = useState<string | null>('You have some Error')
+     //const [error, setError] = useState<string | null>('You have some Error')
     const [error, setError] = useState<string | null>(null)
     const [x, setX] = useState('')
+   const[showPassword,setShowPassword]=useState(false)
+    console.log(showPassword)
 
     const handleFocus = () => {
         setIsFocused(true);
     };
-
     const handleBlur = () => {
         setIsFocused(false);
     };
-
-
     const stylesContainer = `
      ${s.container}
     ${isFocused ? s.containerFocus : ''}
@@ -38,6 +37,9 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
      ${s.container}
      ${s.main}
            `
+const onMouseDownHandler=()=>{
+    setShowPassword(!showPassword)
+}
 
     return (
         <>
@@ -60,11 +62,17 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
                     className={stylesContainer}
                     onFocus={handleFocus} onBlur={handleBlur}>
                     <input
+                        onChange={(e) => setX(e.currentTarget.value)}
+                        type={showPassword? 'text': "password"}
                         disabled={disabled}
                         className={` ${className} ${stylesInput}`}
                         {...rest}
                     />
-                    <img src={passwordPict} alt="passwordIcon" className={disabled ? s.icon : ''}/>
+                    <img src={passwordPict} alt="passwordIcon"
+                         onMouseDown={onMouseDownHandler}
+                         onMouseUp={onMouseDownHandler}
+                         className={disabled ? s.icon : ''}
+                    />
 
                 </div>
             }

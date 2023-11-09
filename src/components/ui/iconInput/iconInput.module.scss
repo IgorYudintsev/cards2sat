@@ -16,9 +16,10 @@
   }
 
   &:active {
-    background-color: var(--color-dark-900);
+    background-color: var(--color-dark-500);
     border: 2px solid var(--color-light-100);
   }
+
 }
 
 .containerDisabled{
@@ -39,7 +40,7 @@
 
   &:active {
     background-color: var(--color-dark-700);
-    border: 2px solid var(--color-dark-900);
+    border: 2px solid var(--color-dark-500);
   }
 
   &:disabled {
