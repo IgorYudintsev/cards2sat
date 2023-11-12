@@ -19,7 +19,7 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
     const [error, setError] = useState<string | null>(null)
     const [x, setX] = useState('')
    const[showPassword,setShowPassword]=useState(false)
-    console.log(showPassword)
+
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -73,7 +73,6 @@ const onMouseDownHandler=()=>{
                          onMouseUp={onMouseDownHandler}
                          className={disabled ? s.icon : ''}
                     />
-
                 </div>
             }
 
