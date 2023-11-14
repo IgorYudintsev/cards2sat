@@ -7,9 +7,10 @@ import t from "@/components/ui/typography/typography.module.scss";
 import {Typography} from "@/components/ui/typography";
 
 export type InputProps = {
+    label?:string;
     className?: string;
     disabled?: boolean;
-    icon: "search" | "password" | "classic";
+    icon?: "search" | "password" | "classic";
 };
 
 export const SuperInput = (props: InputProps) => {
@@ -42,7 +43,7 @@ export const SuperInput = (props: InputProps) => {
      `;
 
     return (
-        <div style={{width: '100%', height: '1000px', backgroundColor: 'black'}}>
+        <div style={{width: '100%', backgroundColor: 'black'}}>
             {icon === "search" || icon === "password" ? (
                 <>
                     <div className={stylesContainer} onFocus={handleFocus} onBlur={handleBlur}>
