@@ -2,7 +2,7 @@ import {useForm} from "react-hook-form";
 import {SuperInput} from "@/components/ui/superInput";
 import {SuperButton} from "@/components/ui/superButton";
 
-type FormValues = {
+export type FormValues = {
     email: string
     password: string
 }
