@@ -18,12 +18,11 @@ export type InputProps = {
 };
 
 export const SuperInput = (props: InputProps) => {
-    const {name, control, className, disabled = true, icon = "search", ...rest} = props;
+    const {name, control,label, className, disabled = true, icon = "search", ...rest} = props;
     const [isFocused, setIsFocused] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+     const [error, setError] = useState<string | null>(null);
     //const [error, setError] = useState<string | null>('You have some Error')
     const [x, setX] = useState('');
-    console.log(x)
     const [showPassword, setShowPassword] = useState(false)
 
     const onMouseDownHandler = () => {
@@ -48,7 +47,7 @@ export const SuperInput = (props: InputProps) => {
 
     const styles = `
     ${s.main}
-    ${error && icon === 'classic' ? s.borderError : icon !== 'classic' ? s.borderBlack : s.borderGrey}
+        ${error && icon === 'classic' ? s.borderError : icon !== 'classic' ? s.borderBlack : s.borderGrey}
      `;
 
     return (
@@ -57,6 +56,7 @@ export const SuperInput = (props: InputProps) => {
             <div style={{width: '100%', backgroundColor: 'black'}}>
                 {icon === "search" || icon === "password" ? (
                     <>
+                        <Typography as="span" variant="caption" className={t.blue}>{label}</Typography>
                         <div className={stylesContainer} onFocus={handleFocus} onBlur={handleBlur}>
                             {icon === "search" && <img src={searchPict} alt="searchIcon"/>}
                             <Controller
@@ -89,23 +89,28 @@ export const SuperInput = (props: InputProps) => {
                     </>
 
                 ) : (
-                    <div style={{width: '284px'}} onFocus={handleFocus} onBlur={handleBlur}>
-                        <Controller
-                            name={name}
-                            control={control}
-                            // rules={rules}
-                            // defaultValue={defaultValue}
-                            render={({field, fieldState}) => (
-                                <input
-                                    {...field}
-                                    disabled={disabled}
-                                    className={`${className} ${styles}`}
-                                    {...rest}
-                                />
-                            )}
-                        />
+                    <>
+                        <Typography as="span" variant="caption" className={t.blue}>{label}</Typography>
+                        <div style={{width: '284px'}} onFocus={handleFocus} onBlur={handleBlur}
+                             className={stylesContainer}>
+                            <Controller
+                                name={name}
+                                control={control}
+                                // rules={rules}
+                                // defaultValue={defaultValue}
+                                render={({field, fieldState}) => (
+                                    <input
+                                        {...field}
+                                        disabled={disabled}
+                                        className={`${className} ${styles}`}
+                                        {...rest}
+                                    />
+                                )}
+                            />
+                        </div>
                         <Typography as="span" variant="caption" className={t.error}>{error}</Typography>
-                    </div>
+                    </>
+
                 )}
             </div>
         </>
