@@ -7,7 +7,6 @@ export type FormValues = {
     password: string
 }
 export const LoginForm = () => {
-    // const {register, handleSubmit} = useForm<FormValues>()
 
     const {
         control,

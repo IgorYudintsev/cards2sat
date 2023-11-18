@@ -20,8 +20,8 @@ export type InputProps = {
 export const SuperInput = (props: InputProps) => {
     const {name, control,label, className, disabled = true, icon = "search", ...rest} = props;
     const [isFocused, setIsFocused] = useState(false);
-     const [error, setError] = useState<string | null>(null);
-    //const [error, setError] = useState<string | null>('You have some Error')
+     //const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>('You have some Error')
     const [x, setX] = useState('');
     const [showPassword, setShowPassword] = useState(false)
 
