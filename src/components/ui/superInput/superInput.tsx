@@ -5,20 +5,22 @@ import {useState} from "react";
 import s from "./superInput.module.scss";
 import t from "@/components/ui/typography/typography.module.scss";
 import {Typography} from "@/components/ui/typography";
-import {Control, Controller} from "react-hook-form";
+import {Control, Controller, UseFormReset} from "react-hook-form";
 import {FormValues} from "@/components/auth/loginForm/loginForm.tsx";
 
 export type InputProps = {
-    name: string
+    name: "password" | "email" | "checkBox"
     control?: Control<FormValues>;
     label?: string;
     className?: string;
     disabled?: boolean;
     icon?: "search" | "password" | "classic";
+
 };
 
 export const SuperInput = (props: InputProps) => {
-    const {name, control,label, className, disabled = true, icon = "search", ...rest} = props;
+    const {name, control,label, className,
+        disabled = true, icon = "search", ...rest} = props;
     const [isFocused, setIsFocused] = useState(false);
      //const [error, setError] = useState<string | null>(null);
     const [error, setError] = useState<string | null>('You have some Error')
@@ -69,6 +71,7 @@ export const SuperInput = (props: InputProps) => {
                                         {...field}
                                         type={!showPassword && icon === "password" ? "password" : 'text'}
                                         disabled={disabled}
+
                                         className={`${className} ${styles}`}
                                         {...rest}
                                     />
@@ -103,6 +106,7 @@ export const SuperInput = (props: InputProps) => {
                                         {...field}
                                         disabled={disabled}
                                         className={`${className} ${styles}`}
+
                                         {...rest}
                                     />
                                 )}
