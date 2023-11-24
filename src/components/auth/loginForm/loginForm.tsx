@@ -1,8 +1,9 @@
-import {useForm} from "react-hook-form";
-import {SuperInput} from "@/components/ui/superInput";
-import {SuperButton} from "@/components/ui/superButton";
-import {CheckBox} from "@/components";
-import {BaseSyntheticEvent} from "react";
+
+import { useForm } from "react-hook-form";
+
+import { SuperInput } from "@/components/ui/superInput";
+import { SuperButton } from "@/components/ui/superButton";
+import { CheckBox } from "@/components";
 
 export type FormValues = {
     email: string;
@@ -14,41 +15,101 @@ export const LoginForm = () => {
     const {
         control,
         handleSubmit,
-        reset,
-        formState: {errors}
+        formState: { errors }
     } = useForm<FormValues>();
 
-    const onSubmit = (data: FormValues,) => {
-        console.log(data);
-        reset('', {
-            keepValues: false,
-        })
-        console.log(data);
-    };
+    const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
-    // const onSubmit = (data, e) => {
-    //     e.target.reset();
-    // };
+    const onSubmit = (data: FormValues) => {
+        //console.log(data);
+       // console.log("errors: ", errors);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <SuperInput
                 control={control}
                 name="email"
-                icon={"classic"}
+                icon="classic"
                 disabled={false}
-                label={"email"}
+                label="email"
+                rules={{
+                    required: "Email is required",
+                    pattern: {
+                        value: emailRegex,
+                        message: 'Invalid email'
+                    }
+                }}
+                errors={errors.email}
             />
             <SuperInput
                 control={control}
                 name="password"
-                icon={"password"}
+                icon="password"
                 disabled={false}
-                label={"password"}
+                label="password"
             />
-            <CheckBox control={control} name="checkBox"/>
+            <CheckBox control={control} name="checkBox" />
             <SuperButton type="submit">Submit</SuperButton>
         </form>
     );
 };
+
+//--------------------------------------------------
+// import {useForm} from "react-hook-form";
+// import {SuperInput} from "@/components/ui/superInput";
+// import {SuperButton} from "@/components/ui/superButton";
+// import {CheckBox} from "@/components";
+//
+//
+// export type FormValues = {
+//     email: string;
+//     password: string;
+//     checkBox: boolean;
+// };
+//
+// export const LoginForm = () => {
+//     const {
+//         control,
+//         handleSubmit,
+//         reset,
+//         formState: {errors}
+//     } = useForm<FormValues>();
+//
+//     const emailRegex =
+//         /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+//
+//     const onSubmit = (data: FormValues,) => {
+//         console.log(data);
+//        };
+//
+//
+//     return (
+//         <form onSubmit={handleSubmit(onSubmit)}>
+//             <SuperInput
+//                 control={control}
+//                 name="email"
+//                 icon={"classic"}
+//                 disabled={false}
+//                 label={"email"}
+//                 rules={
+//                 { required: "Email is required" ,
+//                     pattern: {value: emailRegex, message: 'Invalid email' }
+//                 }
+//             }
+//                 errors={errors.email}
+//                 //defaultValue={"developeryudintsev@gmail.com"}
+//             />
+//             <SuperInput
+//                 control={control}
+//                 name="password"
+//                 icon={"password"}
+//                 disabled={false}
+//                 label={"password"}
+//             />
+//             <CheckBox control={control} name="checkBox"/>
+//             <SuperButton type="submit">Submit</SuperButton>
+//         </form>
+//     );
+// };
 

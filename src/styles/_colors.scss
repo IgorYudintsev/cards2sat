@@ -47,4 +47,10 @@
   --color-dark-500: #333;
   --color-dark-700: #303132;
   --color-dark-900: #000000;
+
+  //button
+  --color-primary: var(--color-accent-500);
+  --color-primary-active: var(--color-accent-700);
+  --color-primary-hover: var(--color-accent-300);
 }
+
