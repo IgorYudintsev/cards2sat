@@ -52,12 +52,16 @@
   --color-primary: var(--color-accent-500);
   --color-primary-active: var(--color-accent-700);
   --color-primary-hover: var(--color-accent-300);
-
   --color-secondary: var(--color-dark-300);
   --color-secondary-active: var(--color-dark-500);
   --color-secondary-hover: var(--color-dark-100);
-
   --color-tertiary-active: var(--color-accent-900);
   --color-tertiary-hover: var(--color-accent-500);
+
+  //text
+  --color-text-primary: var(--color-light-100);
+  --color-text-link: var(--color-info-500);
 }
+
+
 

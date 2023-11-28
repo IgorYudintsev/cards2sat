@@ -7,7 +7,19 @@ const meta = {
     component: Typography,
         argTypes: {
         variant: {
-            options: ['large', 'h1'],
+            options: [  'large',
+                'h1',
+                'h2',
+                'h3',
+                'body1',
+                'body2',
+                'subtitle1',
+                'subtitle2',
+                'caption',
+                'overline',
+                'link1',
+                'link2',
+                'error'],
             control: {type: 'radio'},
         },
     },
@@ -93,7 +105,7 @@ export const Link1: Story = {
     args: {
         variant: 'link1',
         children: 'Typography link1',
-        as: 'a',
+         as: 'a',
         href:"http://htmlbook.ru/example/knob.html"
     },
 }
@@ -104,5 +116,12 @@ export const Link2: Story = {
         children: 'Typography link2',
         as: 'a',
         href:"http://htmlbook.ru/example/knob.html"
+    },
+}
+
+export const Error: Story = {
+    args: {
+        variant: 'error',
+        children: 'Typography caption'
     },
 }

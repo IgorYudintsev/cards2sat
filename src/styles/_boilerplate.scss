@@ -26,8 +26,8 @@ option {
 }
 
 a:visited {
-  color: inherit;
-}
+  color: var(--color-info-500);
+ }
 
 body {
   margin: 0;
