@@ -28,8 +28,7 @@ export const Typography = <T extends ElementType = 'p'>(props: TypographyProps<T
     const styles = `
     ${s[variant]} 
      ${className}
-          ${variant === 'link1' ? s.blue : ''}
-`
+   `
 
     return (
         <Component
