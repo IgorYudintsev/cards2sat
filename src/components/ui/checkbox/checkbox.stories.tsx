@@ -1,36 +1,88 @@
-import { Meta, Story } from "@storybook/react";
-import {CheckBox, CheckboxProps} from '@/components/ui/index.ts';
-import { Control, useForm } from "react-hook-form";
-import { FormValues } from "@/components/auth/loginForm/loginForm.tsx";
+import { Meta, StoryObj } from '@storybook/react'
+import { Checkbox } from './checkBox.tsx'
 
 
-const meta: Meta<CheckboxProps> = {
-    title: "Components/CheckBox",
-    component: CheckBox,
-    tags: ["auto-docs"],
+const meta = {
+    title: 'Components/Checkbox',
+    component: Checkbox,
+    tags: ['autodocs'],
     argTypes: {},
-};
-export default meta;
+} satisfies Meta<typeof Checkbox>
 
-type StoryArgs = {
-    control: Control<FormValues>;
-    disabled: false,
-  };
+export default meta
+type Story = StoryObj<typeof meta>
 
-type StoryType = Story<StoryArgs>;
+export const Primary: Story = {
+
+    args: {
+        label: 'Click here',
+        checked: true,
+        disabled: false,
+           },
+}
 
 
-export const ClassicCheckBox: StoryType = (args) => {
-    const {
-        control,
-    } = useForm<FormValues>();
 
-    return <CheckBox
-        control={control}
-        name="example"
-        disabled={args.disabled}
-           />;
-};
+
+//------------------------------------------------------------------------
+// import { Meta, StoryObj } from '@storybook/react'
+//
+// import { Checkbox } from './checkBox.tsx'
+//
+// const meta = {
+//     title: 'Components/Checkbox',
+//     component: Checkbox,
+//     tags: ['autodocs'],
+//     argTypes: {},
+// } satisfies Meta<typeof Checkbox>
+//
+// export default meta
+// type Story = StoryObj<typeof meta>
+//
+// export const Primary: Story = {
+//     //const [checked, setChecked] = React.useState('indeterminate')
+//     args: {
+//         label: 'Click here',
+//         checked: true,
+//         disabled: false,
+//         onChange:()=>{}
+//     },
+// }
+
+//---------------------------------------------------------------
+// import { Meta, Story } from "@storybook/react";
+// import {CheckBox, CheckboxProps} from '@/components/ui/index.ts';
+// import { Control, useForm } from "react-hook-form";
+// import { FormValues } from "@/components/auth/loginForm/loginForm.tsx";
+//
+//
+// const meta: Meta<CheckboxProps> = {
+//     title: "Components/CheckBox",
+//     component: CheckBox,
+//     tags: ["auto-docs"],
+//     argTypes: {},
+// };
+// export default meta;
+//
+// type StoryArgs = {
+//     control: Control<FormValues>;
+//     disabled: false,
+//   };
+//
+// type StoryType = Story<StoryArgs>;
+//
+//
+// export const ClassicCheckBox: StoryType = (args) => {
+//     const {
+//         control,
+//     } = useForm<FormValues>();
+//
+//     return <CheckBox
+//         control={control}
+//         name="example"
+//         disabled={args.disabled}
+//            />;
+// };
 
 
 //-------------------------------------------------
