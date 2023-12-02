@@ -44,6 +44,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             onChange?.(e)
             onValueChange?.(e.target.value)
         }
+
         const [showIcon, setShowIcon] = useState(true)
 
         return (
