@@ -10,3 +10,6 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
 const ForwardRef = forwardRef(SvgComponent)
 
 export const SearchGlass = memo(ForwardRef)
+
+
+//SVG to JSX Converter
