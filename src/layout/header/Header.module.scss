@@ -1,47 +1,68 @@
-.loginWrapper {
-  margin-top: 18px;
+.header {
+  width: 100%;
+  height: 3.75rem;
+  padding: 0.75rem 8.59rem;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:var(--color-dark-700);
 }
-
-.wrapper {
-  height: 60px;
+.userContainer {
   display: flex;
-  justify-content: space-around;
-  background-color: var(--color-dark-500);
+  align-items: center;
+  gap: 0.88rem;
+}
+.userNameText {
+  font-weight: var(--font-weight-bold);
+  border-bottom: 0.125rem dashed var(--color-light-100);
 }
 
-.buttonCase {
-  height: 60px;
 
-  & > button {
-    margin-top: 13px;
-    color: white;
-  }
-}
 
-.iconIncubator {
-  margin-top: 10%;
-  width: 150px;
-}
-
-.avaCase{
-  display: flex;
-}
-
-.ava {
-  & > img {
-    width: 40px;
-    height: 40px;
-    border-radius: 28px;
-  }
-  margin-top: 10px;
-  margin-left: 10px;
-  //margin-left: 51px;
-}
-
-.inscription {
-  margin-top: 20px;
-  color: white;
-  font-size: 20px;
-}
+//.loginWrapper {
+//  margin-top: 18px;
+//  display: flex;
+//}
+//
+//.wrapper {
+//  height: 60px;
+//  display: flex;
+//  justify-content: space-around;
+//  background-color: var(--color-dark-500);
+//}
+//
+//.buttonCase {
+//  height: 60px;
+//
+//  & > button {
+//    margin-top: 13px;
+//    color: white;
+//  }
+//}
+//
+//.iconIncubator {
+//  margin-top: 10%;
+//  width: 150px;
+//}
+//
+//.avaCase{
+//  display: flex;
+//}
+//
+//.ava {
+//  & > img {
+//    width: 40px;
+//    height: 40px;
+//    border-radius: 28px;
+//  }
+//  margin-top: 10px;
+//  margin-left: 10px;
+//  //margin-left: 51px;
+//}
+//
+//.inscription {
+//  margin-top: 20px;
+//  color: white;
+//  font-size: 20px;
+//}
 

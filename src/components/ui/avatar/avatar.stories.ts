@@ -14,8 +14,8 @@ type Story = StoryObj<typeof meta>
 export const NormalAvatar: Story = {
     args: {
         name: 'Igor',
-        src: ava,
-        //src: 'https://avatars.githubusercontent.com/u/95387501?v=4',
+       src: ava,
+       //src: 'https://avatars.githubusercontent.com/u/95387501?v=4',
     },
 }
 
