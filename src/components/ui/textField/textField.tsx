@@ -25,7 +25,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             placeholder,
             type = 'text',
             label,
-            onChange,
+            //onChange,
             onValueChange,
             ...restProps
         },
@@ -40,11 +40,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         const clearInputHandler = () => {
             onValueChange?.('')
         }
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            onChange?.(e)
-            onValueChange?.(e.target.value)
-            console.log(e.target.value)
-        }
+        // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        //     onChange?.(e)
+        //     onValueChange?.(e.target.value)
+        //     // console.log(e.target.value)
+        // }
 
         const [showIcon, setShowIcon] = useState(true)
 
@@ -59,7 +59,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                             type={generateType(type, showIcon)}
                             ref={ref}
                             className={classNames.input}
-                            onChange={handleChange}
+                            //onChange={handleChange}
                             placeholder={placeholder}
                             {...restProps}
                         />

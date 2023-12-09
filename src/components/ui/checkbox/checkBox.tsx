@@ -1,12 +1,13 @@
-import { FC } from 'react'
+import {FC} from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
-import { clsx } from 'clsx'
-import { CheckIcon } from '@/assets/icons/check.tsx'
-import { Typography } from '@/components'
+import {clsx} from 'clsx'
+import {CheckIcon} from '@/assets/icons/check.tsx'
+import {Typography} from '@/components'
 
 import s from './checkbox.module.scss'
+
 export type CheckboxProps = {
     className?: string
     checked?: boolean
@@ -29,8 +30,8 @@ export const Checkbox: FC<CheckboxProps> = ({
                                                 className,
                                             }) => {
     const classNames = {
-         container: clsx(s.container, className),
-           buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled, position === 'left' && s.left),
+        container: clsx(s.container, className),
+        buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled, position === 'left' && s.left),
         root: s.root,
         indicator: s.indicator,
         label: clsx(s.label, disabled && s.disabled),
@@ -49,10 +50,11 @@ export const Checkbox: FC<CheckboxProps> = ({
                             disabled={disabled}
                             required={required}
                             id={id}
+
                         >
                             {checked && (
                                 <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                                    <CheckIcon />
+                                    <CheckIcon/>
                                 </CheckboxRadix.Indicator>
                             )}
                         </CheckboxRadix.Root>
@@ -60,7 +62,7 @@ export const Checkbox: FC<CheckboxProps> = ({
                     {label}
                 </Typography>
             </LabelRadix.Root>
-         </div>
+        </div>
     )
 }
 
