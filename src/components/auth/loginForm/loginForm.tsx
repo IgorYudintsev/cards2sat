@@ -1,21 +1,29 @@
 import {useController, useForm} from 'react-hook-form'
 import {Button, Checkbox} from '@/components'
 import {TextField} from '@/components/ui/textField'
-import {boolean, z} from 'zod'
+import { z} from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-type FormValues = {
-    email: string
-    password: string
-    rememberMe: boolean
-}
+
 
 //const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+
 const loginSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(3),
-    rememberMe:boolean()
+    //email: z.string().email(), автоматом сгенерирует текст ошибки
+    email: z.string().email('Please enter a valid email'), //прописываем в ручную
+    //password: z.string().min(3),
+    password: z.string().min(3,'to short').max(10,'to long'),
+    rememberMe:z.boolean().optional()
 })
+
+type FormValues = z.infer<typeof loginSchema>
+
+// type FormValues = {
+//     email: string
+//     password: string
+//     rememberMe: boolean
+// }
+
 export const LoginForm = () => {
     const {
         control,
