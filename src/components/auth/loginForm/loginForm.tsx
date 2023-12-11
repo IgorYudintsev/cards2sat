@@ -1,20 +1,12 @@
-import {useController, useForm} from 'react-hook-form'
-import {Button, Checkbox} from '@/components'
+import {useForm} from 'react-hook-form'
+import {Button} from '@/components'
 import {TextField} from '@/components/ui/textField'
-import { z} from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
+import {z} from 'zod'
+import {zodResolver} from '@hookform/resolvers/zod'
 import {loginSchema} from "@/components/auth/loginForm/loginSchema.ts";
-
-
-//const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+import {ControlledCheckbox} from "@/components/ui/controlled/controlled-checkbox/controlled-checkbox.tsx";
 
 type FormValues = z.infer<typeof loginSchema>
-
-// type FormValues = {
-//     email: string
-//     password: string
-//     rememberMe: boolean
-// }
 
 export const LoginForm = () => {
     const {
@@ -29,15 +21,6 @@ export const LoginForm = () => {
             password: '',
             rememberMe: false
         }
-    })
-
-   // console.log('errors: ', errors)
-
-    const {
-        field: {value, onChange},
-    } = useController({
-        name: 'rememberMe',
-        control,
     })
 
     const onSubmit = (data: FormValues) => {
@@ -57,11 +40,78 @@ export const LoginForm = () => {
                        errorMessage={errors.password?.message}
                        type="password"
             />
-            <Checkbox checked={value} label={'rememberMe'} onChange={onChange}/>
+            {/*<Checkbox checked={value} label={'rememberMe'} onChange={onChange}/>*/}
+            <ControlledCheckbox control={control} name={'rememberMe'} label={'remember me'}/>
             <Button type="submit">Submit</Button>
         </form>
     )
 }
+
+//------------------------------------------------------------------------------------------
+// import {useController, useForm} from 'react-hook-form'
+// import {Button, Checkbox} from '@/components'
+// import {TextField} from '@/components/ui/textField'
+// import { z} from 'zod'
+// import { zodResolver } from '@hookform/resolvers/zod'
+// import {loginSchema} from "@/components/auth/loginForm/loginSchema.ts";
+//
+//
+// //const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+//
+// type FormValues = z.infer<typeof loginSchema>
+//
+// // type FormValues = {
+// //     email: string
+// //     password: string
+// //     rememberMe: boolean
+// // }
+//
+// export const LoginForm = () => {
+//     const {
+//         control,
+//         register,
+//         handleSubmit,
+//         formState: {errors},
+//     } = useForm<FormValues>({
+//         resolver: zodResolver(loginSchema),
+//         defaultValues: {
+//             email: 'kakvospitat@gmail.com',
+//             password: '',
+//             rememberMe: false
+//         }
+//     })
+//
+//    // console.log('errors: ', errors)
+//
+//     const {
+//         field: {value, onChange},
+//     } = useController({
+//         name: 'rememberMe',
+//         control,
+//     })
+//
+//     const onSubmit = (data: FormValues) => {
+//         console.log(data)
+//     }
+//
+//
+//     return (
+//         <form onSubmit={handleSubmit(onSubmit)}>
+//             <TextField {...register('email', )}
+//                        label={'email'}
+//                        errorMessage={errors.email?.message}
+//                        type="email"/>
+//
+//             <TextField {...register('password')}
+//                        label={'password'}
+//                        errorMessage={errors.password?.message}
+//                        type="password"
+//             />
+//             <Checkbox checked={value} label={'rememberMe'} onChange={onChange}/>
+//             <Button type="submit">Submit</Button>
+//         </form>
+//     )
+// }
 
 
 //---------------------------------------------------------------------------
