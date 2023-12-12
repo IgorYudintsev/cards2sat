@@ -5,6 +5,7 @@ import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {loginSchema} from "@/components/auth/loginForm/loginSchema.ts";
 import {ControlledCheckbox} from "@/components/ui/controlled/controlled-checkbox/controlled-checkbox.tsx";
+import {DevTool} from "@hookform/devtools";
 
 type FormValues = z.infer<typeof loginSchema>
 
@@ -30,6 +31,7 @@ export const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+            <DevTool control={control} />
             <TextField {...register('email', )}
                        label={'email'}
                        errorMessage={errors.email?.message}
