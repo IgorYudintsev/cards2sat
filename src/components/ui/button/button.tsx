@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 import s from './button.module.scss'
 
+
 export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
   children: ReactNode
