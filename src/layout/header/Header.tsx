@@ -1,4 +1,4 @@
-import { BrandSvg } from '../../assets/icons/BrandSvg.tsx'
+import { BrandSvg } from '@/assets/icons/BrandSvg'
 import { Button } from '@/components'
 import { Typography } from '@/components'
 
