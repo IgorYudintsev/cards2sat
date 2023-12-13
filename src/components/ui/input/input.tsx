@@ -14,6 +14,7 @@ export const Input: React.FC<InputProps> = (props) => {
 
     // const [error, setError] = useState<string|null>('You have some Error')
     const [error, setError] = useState<string|null>(null)
+    console.log(setError)
 
     const styles = `
     ${s.main}

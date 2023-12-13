@@ -31,6 +31,7 @@ export const Typography = <T extends ElementType = 'p'>({
     const Component = as || 'p'
     const classNames = `${s[variant]} ${className}`
 
+    console.log({...restProps})
     return <Component className={classNames}>{children}</Component>
 }
 
