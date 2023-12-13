@@ -9,6 +9,13 @@ import {DevTool} from "@hookform/devtools";
 
 type FormValues = z.infer<typeof loginSchema>
 
+// type LoginFormProps={
+//     onSubmit:(data: FormValues) =>void
+// }
+// onSubmit нужно будет передавать
+// export const LoginForm = ({onSubmit}:LoginFormProps) => {
+
+
 export const LoginForm = () => {
     const {
         control,
