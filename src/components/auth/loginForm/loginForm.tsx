@@ -6,17 +6,16 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {loginSchema} from "@/components/auth/loginForm/loginSchema.ts";
 import {ControlledCheckbox} from "@/components/ui/controlled/controlled-checkbox/controlled-checkbox.tsx";
 import {DevTool} from "@hookform/devtools";
+import {ControlledTextField} from "@/components/ui/controlled/controlled-textField/controlled-textField.tsx";
 
+// onSubmit передаем из storybook
 type FormValues = z.infer<typeof loginSchema>
+type LoginFormProps={
+    onSubmit:(data: FormValues) =>void
+}
 
-// type LoginFormProps={
-//     onSubmit:(data: FormValues) =>void
-// }
-// onSubmit нужно будет передавать
-// export const LoginForm = ({onSubmit}:LoginFormProps) => {
-
-
-export const LoginForm = () => {
+export const LoginForm = ({onSubmit}:LoginFormProps) => {
+// export const LoginForm = () => {
     const {
         control,
         register,
@@ -26,23 +25,33 @@ export const LoginForm = () => {
         resolver: zodResolver(loginSchema),
         defaultValues: {
             email: 'kakvospitat@gmail.com',
+           // email: '',
             password: '',
             rememberMe: false
         }
     })
 
-    const onSubmit = (data: FormValues) => {
-        console.log(data)
-    }
+    //отключили т.к. сабмитим через storybook
+    // const onSubmit = (data: FormValues) => {
+    //     console.log(data)
+    // }
 
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <DevTool control={control} />
-            <TextField {...register('email', )}
-                       label={'email'}
-                       errorMessage={errors.email?.message}
-                       type="email"/>
+            {/*<TextField {...register('email', )}*/}
+            {/*           label={'email'}*/}
+            {/*           errorMessage={errors.email?.message}*/}
+            {/*           type="email"/>*/}
+
+            <ControlledTextField
+                name={"email"}
+                control={control}
+                label={'email'}
+                type="email"
+                errorMessage={errors.email?.message}
+            />
 
             <TextField {...register('password')}
                        label={'password'}

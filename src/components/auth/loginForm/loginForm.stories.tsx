@@ -1,10 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { LoginForm } from './loginForm.tsx'
+import type {Meta, StoryObj} from '@storybook/react'
+import {LoginForm} from './loginForm.tsx'
 
 
 const meta = {
     title: 'Auth/LoginForm',
     component: LoginForm,
+     argTypes: {
+        onSubmit: {action: 'submitted'},
+    },
     tags: ['autodocs'],
 } satisfies Meta<typeof LoginForm>
 
@@ -12,9 +15,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 
-export const Primary: Story = {
-    //onSubmit:
-}
+export const Primary: Story = {}
 
 //-------------------------------------------------------------------------
 // import { Meta, Story } from "@storybook/react";
