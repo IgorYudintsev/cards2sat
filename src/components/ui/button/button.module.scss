@@ -62,7 +62,7 @@
   &:hover {
     background-color: var(--color-secondary-hover);
   }
-  &:focus {
+  &:focus-visible {
     border-radius: 0.25rem;
     outline: 2px solid var(--color-info-700);
   }
@@ -80,12 +80,12 @@
   &:hover {
     background-color: var(--color-accent-700);
   }
-  &:focus {
+  &:focus-visible {
     border-radius: 0.25rem;
     outline: 2px solid var(--color-info-700);
   }
   &:disabled {
-    background-color: none;
+    background-color: no ne;
   }
 }
 
@@ -98,7 +98,7 @@
   &:hover {
     color: var(--color-accent-300);
   }
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-info-700);
     border-radius: 8.125rem;
   }

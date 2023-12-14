@@ -32,7 +32,7 @@ export const Typography = <T extends ElementType = 'p'>({
     const classNames = `${s[variant]} ${className}`
 
     //console.log({...restProps})
-    return <Component className={classNames}>{children}</Component>
+    return <Component className={classNames} {...restProps}>{children}</Component>
 }
 
 
