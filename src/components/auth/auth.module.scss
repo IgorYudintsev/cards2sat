@@ -28,6 +28,12 @@
   text-align: center;
   color: var(--color-light-900);
 }
+
+.typographyCaption {
+  margin-top: 1.25rem;
+    color: var(--color-light-900);
+}
+
 .signUpLink {
   display: flex;
   justify-content: center;
@@ -37,4 +43,12 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-l);
   text-decoration-line: underline;
+}
+
+.marginTop {
+  margin-top: 2rem;
+}
+
+.marginBottom {
+  margin-bottom: 3rem;
 }

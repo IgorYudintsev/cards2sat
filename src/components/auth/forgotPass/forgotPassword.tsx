@@ -8,16 +8,17 @@ import {Card} from "@/components/ui/card";
 import style from '../auth.module.scss'
 import {PATH} from "@/routes";
 import {signUpSchema} from "@/components/auth/signUp/signUpSchema.ts";
+import {forgotPasswordSchema} from "@/components/auth/forgotPass/forgotPasswordSchema.ts";
 import {clsx} from "clsx";
 
 
 // onSubmit передаем из storybook
-type FormValues = z.infer<typeof signUpSchema>
-export type SignUpFormProps = {
+type FormValues = z.infer<typeof forgotPasswordSchema>
+export type ForgotPasswordProps = {
     onSubmit: (data: FormValues) => void
 }
 
-export const SignUpForm = ({onSubmit}: SignUpFormProps) => {
+export const ForgotPassword = ({onSubmit}: ForgotPasswordProps) => {
 // export const SignUpForm = () => {
     const {
         control,
@@ -28,8 +29,6 @@ export const SignUpForm = ({onSubmit}: SignUpFormProps) => {
         defaultValues: {
             email: 'kakvospitat@gmail.com',
             // email: '',
-            password: '',
-            confirm: '',
         }
     })
 
@@ -38,14 +37,16 @@ export const SignUpForm = ({onSubmit}: SignUpFormProps) => {
     //     console.log(data)
     // }
 
+
     const classNames = {
-        signIn: clsx(style.title, style.marginBottom),
-    }
+        forgot: clsx(style.title, style.marginBottom),
+        caption: clsx(style.typographyCaption, style.marginBottom),
+         }
 
     return (
         <Card className={style.card}>
-            <Typography as="h1" variant="h1" className={classNames.signIn}>
-                Sign Up
+            <Typography as="h1" variant="h1" className={classNames.forgot}>
+                Forgot your password?
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <DevTool control={control}/>
@@ -58,29 +59,18 @@ export const SignUpForm = ({onSubmit}: SignUpFormProps) => {
                     errorMessage={errors.email?.message}
                 />
 
-                <ControlledTextField
-                    name={"password"}
-                    control={control}
-                    label={'password'}
-                    type="password"
-                    errorMessage={errors.password?.message}
-                />
-                <ControlledTextField
-                    name={"confirm"}
-                    control={control}
-                    label={'confirm'}
-                    type="password"
-                    errorMessage={errors.confirm?.message}
-                />
+                <Typography variant="caption" className={classNames.caption}>
+                    {"Enter yout email address and we will send your futher instructions"}
+                </Typography>
 
-                <Button type="submit" fullWidth className={style.marginTop}>Sign UP</Button>
+                <Button type="submit" fullWidth className={style.signUpSubmit}>Send Instructions</Button>
             </form>
 
             <Typography variant="body2" className={style.dontHaveAccount}>
-                {"Already have an account?"}
+                {"Did you remember your password?"}
             </Typography>
             <Typography as={'a'} href={PATH.LOGIN} className={style.signUpLink}>
-                Sign In
+                Try logging in
             </Typography>
         </Card>
     )

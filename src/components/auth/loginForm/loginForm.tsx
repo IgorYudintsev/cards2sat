@@ -7,8 +7,9 @@ import {ControlledCheckbox} from "@/components/ui/controlled/controlled-checkbox
 import {DevTool} from "@hookform/devtools";
 import ControlledTextField from "@/components/ui/controlled/controlled-textField/controlled-textField.tsx";
 import {Card} from "@/components/ui/card";
-import style from './loginForm.module.scss'
+import style from '../auth.module.scss'
 import {PATH} from "@/routes";
+import {clsx} from "clsx";
 
 
 // onSubmit передаем из storybook
@@ -38,10 +39,14 @@ export const LoginForm = ({onSubmit}: LoginFormProps) => {
     //     console.log(data)
     // }
 
+    const classNames = {
+        signIn: clsx(style.title, style.marginBottom),
+      }
+
 
     return (
         <Card className={style.card}>
-            <Typography as="h1" variant="h1" className={style.title}>
+            <Typography as="h1" variant="h1" className={classNames.signIn}>
                 Sign In
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
