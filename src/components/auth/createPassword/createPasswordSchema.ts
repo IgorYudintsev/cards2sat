@@ -1,8 +1,8 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
+//import { zodResolver } from '@hookform/resolvers/zod'
+// { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-const schema = z.object({
+export const createPasswordSchema = z.object({
   password: z
       .string()
       .trim()
@@ -10,14 +10,14 @@ const schema = z.object({
       .nonempty('Enter password'),
 })
 
-export type FormValues = z.infer<typeof schema>
-export type CreatePasswordFormProps = { onSubmit: (data: FormValues) => void }
-
-export const useCreatePasswordForm = ({ onSubmit }: CreatePasswordFormProps) => {
-  const { handleSubmit, ...rest } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    mode: 'onSubmit',
-  })
-
-  return { handleSubmit: handleSubmit(onSubmit), ...rest }
-}
+// export type FormValues = z.infer<typeof schema>
+// export type CreatePasswordFormProps = { onSubmit: (data: FormValues) => void }
+//
+// export const useCreatePasswordForm = ({ onSubmit }: CreatePasswordFormProps) => {
+//   const { handleSubmit, ...rest } = useForm<FormValues>({
+//     resolver: zodResolver(schema),
+//     mode: 'onSubmit',
+//   })
+//
+//   return { handleSubmit: handleSubmit(onSubmit), ...rest }
+//}

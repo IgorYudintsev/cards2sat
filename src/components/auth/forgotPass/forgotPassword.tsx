@@ -7,7 +7,6 @@ import ControlledTextField from "@/components/ui/controlled/controlled-textField
 import {Card} from "@/components/ui/card";
 import style from '../auth.module.scss'
 import {PATH} from "@/routes";
-import {signUpSchema} from "@/components/auth/signUp/signUpSchema.ts";
 import {forgotPasswordSchema} from "@/components/auth/forgotPass/forgotPasswordSchema.ts";
 import {clsx} from "clsx";
 
@@ -25,7 +24,7 @@ export const ForgotPassword = ({onSubmit}: ForgotPasswordProps) => {
         handleSubmit,
         formState: {errors},
     } = useForm<FormValues>({
-        resolver: zodResolver(signUpSchema),
+        resolver: zodResolver(forgotPasswordSchema),
         defaultValues: {
             email: 'kakvospitat@gmail.com',
             // email: '',
