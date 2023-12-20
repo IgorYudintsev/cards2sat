@@ -1,29 +1,29 @@
 import {useState} from 'react'
-
-import {useController} from 'react-hook-form'
-
+import {useForm} from 'react-hook-form'
 import {LogoutSvg} from '@/assets/icons'
 import {EditPenSvg} from '@/assets/icons/EditPenSvg.tsx'
 import {Avatar} from '../../ui/avatar'
-// import Button from '../../ui/button'
 import {Card} from '../../ui/card'
-// import {Typography} from '../../ui/Typography'
-
-import {usePersonalInfoForm} from './personal-info'
 import style from '../personal-info/personal-info.module.scss'
-import {TextField} from "@/components/ui/textField";
 import {Button, Typography} from "@/components";
+import ControlledTextField from "@/components/ui/controlled/controlled-textField/controlled-textField.tsx";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {z} from "zod";
+import {personalInfoSchema} from "@/components/profile/personal-info/personalInfoSchema.ts";
 
+
+type FormValues = z.infer<typeof personalInfoSchema>
 type PersonalInfoProps = {
     email: string
     name: string
     avatarSrc?: string
+    onSubmit: (data: FormValues) => void
     // onlogOut: () => void
     // onAvatarChange: (newAvatar: string) => void
     // onNameChange: (newName: string) => void
 }
 
-export const PersonalInfo = ({ name, email, avatarSrc }: PersonalInfoProps) => {
+export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoProps) => {
     const [editMode, setEditMode] = useState(false)
 
     const updateNicknameHandler = (data: { name: string }) => {
@@ -36,36 +36,50 @@ export const PersonalInfo = ({ name, email, avatarSrc }: PersonalInfoProps) => {
         setEditMode(false)
     }
 
+    // const {
+    //     control,
+    //     handleSubmit,
+    //     formState: { errors },
+    // } = usePersonalInfoForm(updateNicknameHandler, name)
 
     const {
+        control,
         handleSubmit,
-        control,
-        formState: { errors },
-    } = usePersonalInfoForm(updateNicknameHandler, name)
-
-
-
-    const {
-        field: { value, onChange },
-    } = useController({
-        name: 'name',
-        control,
-        defaultValue: name,
+        formState: {errors},
+    } = useForm<FormValues>({
+        resolver: zodResolver(personalInfoSchema),
+        defaultValues: {
+            nickname: 'Yudintsev',
+              }
     })
+
+    // const {
+    //     field: { value, onChange },
+    // } = useController({
+    //     name: 'name',
+    //     control,
+    //     defaultValue: name,
+    // })
 
     const editModeOn = () => {
         setEditMode(true)
     }
 
     const infoRender = editMode ? (
-        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-            <TextField
-                label="Nickname"
-                value={value}
-                onChange={onChange}
-                defaultValue={name}
-                className={style.input}
-                errorMessage={errors.name?.message}
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+                        {/*<TextField*/}
+            {/*    label="Nickname"*/}
+            {/*    value={value}*/}
+            {/*    onChange={onChange}*/}
+            {/*    defaultValue={name}*/}
+            {/*    className={style.input}*/}
+            {/*    errorMessage={errors.name?.message}*/}
+            {/*/>*/}
+                        <ControlledTextField
+                name={"nickname"}
+                control={control}
+                label={'nickname'}
+                errorMessage={errors.nickname?.message}
             />
             <Button
                 variant="primary"
@@ -136,16 +150,11 @@ const StaticInfoRender = ({ email, name, editModeCallback }: StaticInfoRenderPro
 //----------------------------------------------------------------------------------------------------
 
 // import {useState} from 'react'
-//
 // import {useController} from 'react-hook-form'
-//
 // import {LogoutSvg} from '@/assets/icons'
 // import {EditPenSvg} from '@/assets/icons/EditPenSvg.tsx'
 // import {Avatar} from '../../ui/avatar'
-// // import Button from '../../ui/button'
 // import {Card} from '../../ui/card'
-// // import {Typography} from '../../ui/Typography'
-//
 // import {usePersonalInfoForm} from './personal-info'
 // import style from '../personal-info/personal-info.module.scss'
 // import {TextField} from "@/components/ui/textField";
@@ -173,14 +182,11 @@ const StaticInfoRender = ({ email, name, editModeCallback }: StaticInfoRenderPro
 //         setEditMode(false)
 //     }
 //
-//
 //     const {
 //         handleSubmit,
 //         control,
 //         formState: { errors },
 //     } = usePersonalInfoForm(updateNicknameHandler, name)
-//
-//
 //
 //     const {
 //         field: { value, onChange },
@@ -270,3 +276,4 @@ const StaticInfoRender = ({ email, name, editModeCallback }: StaticInfoRenderPro
 //     )
 // }
 
+//----------------------------------------------------------------------------------------------------

@@ -5,6 +5,9 @@ import { PersonalInfo } from '.'
 const meta = {
     title: 'Profile/PersonalInfo',
     component: PersonalInfo,
+    argTypes: {
+        onSubmit: {action: 'submitted'},
+    },
     tags: ['autodocs'],
 } satisfies Meta<typeof PersonalInfo>
 
