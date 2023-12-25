@@ -1,3 +1,4 @@
+
 import {useForm} from 'react-hook-form'
 import {Button, Typography} from '@/components'
 import {z} from 'zod'
@@ -40,7 +41,7 @@ export const ForgotPassword = ({onSubmit}: ForgotPasswordProps) => {
     const classNames = {
         forgot: clsx(style.title, style.marginBottom),
         caption: clsx(style.typographyCaption, style.marginBottom),
-         }
+    }
 
     return (
         <Card className={style.card}>
