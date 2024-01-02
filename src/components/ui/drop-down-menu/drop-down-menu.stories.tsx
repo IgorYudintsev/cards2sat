@@ -57,11 +57,10 @@ export const Primary: Story = {
                             </div>
                         </div>
                     </DropDownMenuIcon>
-                    {/*<DropDownMenuIcon onSelect={() => {*/}
-                    {/*}} icon={<PersonOutlineSvg/>}>*/}
-                    {/*    My Profile*/}
-                    {/*</DropDownMenuIcon>*/}
-                    {/*<DropDownMenuIcon >Sign Out</DropDownMenuIcon>*/}
+                    <DropDownMenuIcon onSelect={() => {}} icon={<PersonOutlineSvg/>}>
+                        My Profile
+                    </DropDownMenuIcon>
+                    <DropDownMenuIcon >Sign Out</DropDownMenuIcon>
                 </DropDownMenu>
             </div>
         );
