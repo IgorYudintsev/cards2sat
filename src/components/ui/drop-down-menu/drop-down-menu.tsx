@@ -1,4 +1,4 @@
-import { ReactNode, useState, FC, CSSProperties } from 'react'
+import {ReactNode, useState, FC, CSSProperties} from 'react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 
@@ -23,9 +23,9 @@ export const DropDownMenu: FC<DropdownProps> = ({
     const [open, setOpen] = useState(false)
 
     return (
-        <DropdownMenu.Root onOpenChange={setOpen} modal>
+        <DropdownMenu.Root onOpenChange={setOpen} modal >
             <DropdownMenu.Trigger asChild>
-                <div style={{ height: 'fit-content', width: 'fit-content', position: 'relative' }}>
+                <div className={style.DropdownMenuTrigger}>
                     {trigger}
                     {open && <div className={style.DropdownMenuArrow3}></div>}
                 </div>
@@ -40,8 +40,6 @@ export const DropDownMenu: FC<DropdownProps> = ({
                     hideWhenDetached
                 >
                     {children}
-                    {/* <DropdownMenu.Arrow className={style['DropdownMenuArrow']} /> */}
-                    {/* <div className={style.DropdownMenuArrow2}></div> */}
                 </DropdownMenu.Content>
             </DropdownMenu.Portal>
         </DropdownMenu.Root>
@@ -54,30 +52,30 @@ type DropDownMenuIconProps = {
 } & DropdownMenu.DropdownMenuItemProps
 
 export const DropDownMenuIcon = ({
-  onSelect,
-  disabled,
-  className,
-  children,
-  icon,
-  ...restProps
-}: DropDownMenuIconProps) => {
+                                     onSelect,
+                                     disabled,
+                                     className,
+                                     children,
+                                     icon,
+                                     ...restProps
+                                 }: DropDownMenuIconProps) => {
 
-  return (
-    <>
-      <DropdownMenu.Item
-        onSelect={onSelect}
-        // className={className}
-        className={style.DropdownMenuItem}
-        disabled={disabled}
-        {...restProps}
-      >
-        {icon}
-        <Typography variant="subtitle2" style={{ margin: 0 }}>
-          {children}
-        </Typography>
-      </DropdownMenu.Item>
-    </>
-  )
+    return (
+        <>
+            <DropdownMenu.Item
+                onSelect={onSelect}
+                // className={className}
+                className={style.DropdownMenuItem}
+                disabled={disabled}
+                {...restProps}
+            >
+                {icon}
+                <Typography variant="subtitle2" style={{margin: 0}}>
+                    {children}
+                </Typography>
+            </DropdownMenu.Item>
+        </>
+    )
 }
 
 

@@ -22,32 +22,20 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
 
     render: () => {
-        const primaryStyles: CSSProperties = {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-        };
-
-        const wrapperForDropDownMenuIconStyles: CSSProperties = {
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '0.5rem',
-            alignItems: 'center',
-        };
-
-        const wrapperForTypographyStyles: CSSProperties = {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-        };
+            const srcImg='https://avatars.githubusercontent.com/u/45824373?s=400&u=4c710a41dc877dcc3a2a9ddf5aecdfdc0fa1786d&v=4'
 
         return (
-            <div style={primaryStyles}>
-                <DropDownMenu trigger={<Button>open me</Button>}>
+            <div className={s.PrimaryStyles}>
+                <DropDownMenu trigger={
+                    <Avatar
+                    name="Igor"
+                     src={srcImg}
+                />
+                }>
                     <DropDownMenuIcon onSelect={() => {}}>
-                        <div style={wrapperForDropDownMenuIconStyles}>
-                            <Avatar name="Igor" />
-                            <div style={wrapperForTypographyStyles}>
+                        <div className={s.WrapperForDropDownMenuIconStyles}>
+                            <Avatar name="Igor" src={srcImg} />
+                            <div className={s.WrapperForTypographyStyles}>
                                 <Typography variant="subtitle2" as="span">
                                     Igor
                                 </Typography>

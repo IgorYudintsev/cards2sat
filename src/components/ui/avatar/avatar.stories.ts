@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Avatar } from './avatar'
-import ava from '../../../assets/ava/ava.jpg'
+import type {Meta, StoryObj} from '@storybook/react'
+import {Avatar} from './avatar'
 
 const meta = {
     title: 'Components/Avatar',
@@ -14,8 +13,7 @@ type Story = StoryObj<typeof meta>
 export const NormalAvatar: Story = {
     args: {
         name: 'Igor',
-       src: ava,
-       //src: 'https://avatars.githubusercontent.com/u/95387501?v=4',
+        src: 'https://avatars.githubusercontent.com/u/45824373?s=400&u=4c710a41dc877dcc3a2a9ddf5aecdfdc0fa1786d&v=4',
     },
 }
 

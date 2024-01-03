@@ -71,22 +71,15 @@ button {
   user-select: none;
   outline: none;
   border-bottom: 1px solid var(--color-dark-300);
-  border-left: none;
-  border-right: none;
-  border-top: none;
-}
+ }
 
 
 .DropdownMenuItem:before {
   content: '';
   display: block;
   position: absolute;
-  //text-align: center;
   height: 1px;
- // width: 100%;
   background-color: #2f68cc;
-
-
   border-bottom: 1px solid var(--color-dark-500);
   bottom: 0;
 }
@@ -97,16 +90,25 @@ button {
 }
 
 .DropdownMenuItem:first-child {
-  padding-top: 0;
+  padding-top: 10px;
 }
 
 .DropdownMenuItem:last-of-type {
-  padding-bottom: 0;
+  height: 100%;
+  padding-bottom: 10px;
+  border-bottom: none;
 }
-
 
 .DropdownMenuSubTrigger[data-state='open'] {
   color: red;
+}
+
+
+.DropdownMenuTrigger{
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  cursor:pointer
 }
 
 .DropdownMenuItem[data-disabled],
@@ -122,7 +124,6 @@ button {
 .DropdownMenuRadioItem[data-highlighted],
 .DropdownMenuSubTrigger[data-highlighted] {
   background-color: var(--color-dark-300);
-  // padding: 0 5px;
   color: orange;
 }
 
@@ -227,3 +228,22 @@ button {
   }
 }
 
+// for stories
+ .PrimaryStyles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+};
+
+.WrapperForDropDownMenuIconStyles{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center
+};
+
+.WrapperForTypographyStyles{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+};
