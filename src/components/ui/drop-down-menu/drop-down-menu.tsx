@@ -15,15 +15,15 @@ export type DropdownProps = {
 
 export const DropDownMenu: FC<DropdownProps> = ({
                                                     children,
-                                                    align,
-                                                    className,
                                                     trigger,
-                                                    ...restProps
+                                                    // align,
+                                                    // className,
+                                                    // ...restProps
                                                 }) => {
     const [open, setOpen] = useState(false)
 
     return (
-        <DropdownMenu.Root onOpenChange={setOpen} modal >
+        <DropdownMenu.Root onOpenChange={setOpen} modal>
             <DropdownMenu.Trigger asChild>
                 <div className={style.DropdownMenuTrigger}>
                     {trigger}
@@ -32,7 +32,7 @@ export const DropDownMenu: FC<DropdownProps> = ({
             </DropdownMenu.Trigger>
             {/* forceMount Useful when controlling animation */}
 
-            <DropdownMenu.Portal className={style.portal}>
+            <DropdownMenu.Portal>
                 <DropdownMenu.Content
                     className={style.DropdownMenuContent}
                     align="start"
@@ -52,9 +52,9 @@ type DropDownMenuIconProps = {
 } & DropdownMenu.DropdownMenuItemProps
 
 export const DropDownMenuIcon = ({
+                                     //className,
                                      onSelect,
                                      disabled,
-                                     className,
                                      children,
                                      icon,
                                      ...restProps
@@ -64,7 +64,6 @@ export const DropDownMenuIcon = ({
         <>
             <DropdownMenu.Item
                 onSelect={onSelect}
-                // className={className}
                 className={style.DropdownMenuItem}
                 disabled={disabled}
                 {...restProps}

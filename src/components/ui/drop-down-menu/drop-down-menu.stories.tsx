@@ -1,10 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react'
 import {DropDownMenu, DropDownMenuIcon} from './drop-down-menu'
-import {Button, Typography} from "@/components";
+import {Typography} from "@/components";
 import {Avatar} from "@/components/ui/avatar";
-import s from  './drop-down-menu.module.scss'
+import s from './drop-down-menu.module.scss'
 import {PersonOutlineSvg} from "@/assets/icons/PersonOutlineSvg.tsx";
-import {CSSProperties} from "react";
 
 
 const meta = {
@@ -20,18 +19,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-
+    args: {
+        children: null,
+        align: 'start'
+    },
     render: () => {
             const srcImg='https://avatars.githubusercontent.com/u/45824373?s=400&u=4c710a41dc877dcc3a2a9ddf5aecdfdc0fa1786d&v=4'
 
         return (
             <div className={s.PrimaryStyles}>
-                <DropDownMenu trigger={
-                    <Avatar
-                    name="Igor"
-                     src={srcImg}
-                />
-                }>
+                <DropDownMenu trigger={<Avatar name="Igor" src={srcImg}/>}>
                     <DropDownMenuIcon onSelect={() => {}}>
                         <div className={s.WrapperForDropDownMenuIconStyles}>
                             <Avatar name="Igor" src={srcImg} />
