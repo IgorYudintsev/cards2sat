@@ -32,7 +32,6 @@ export const CheckEmail = ({email}: CheckEmailProps) => {
             </Typography>
 
             <Button variant={'primary'} as={'a'} href={PATH.LOGIN}  fullWidth >Back to Sign In</Button>
-
-        </Card>
+          </Card>
     )
 }

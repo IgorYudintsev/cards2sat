@@ -4,13 +4,14 @@ import {LogoutSvg} from '@/assets/icons'
 import {EditPenSvg} from '@/assets/icons/EditPenSvg.tsx'
 import {Avatar} from '../../ui/avatar'
 import {Card} from '../../ui/card'
-import style from '../personal-info/personal-info.module.scss'
+import style from './personal-info.module.scss'
 import {Button, Typography} from "@/components";
 import ControlledTextField from "@/components/ui/controlled/controlled-textField/controlled-textField.tsx";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {personalInfoSchema} from "@/components/profile/personal-info/personalInfoSchema.ts";
 import {clsx} from "clsx";
+import {PATH} from "@/routes";
 
 type FormValues = z.infer<typeof personalInfoSchema>
 type PersonalInfoProps = {
@@ -23,7 +24,7 @@ type PersonalInfoProps = {
     // onNameChange: (newName: string) => void
 }
 
-export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoProps) => {
+export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoProps) => {
     const [editMode, setEditMode] = useState(false)
 
     const updateNicknameHandler = (data: { name: string }) => {
@@ -50,7 +51,7 @@ export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoPr
         resolver: zodResolver(personalInfoSchema),
         defaultValues: {
             nickname: 'Yudintsev',
-              }
+        }
     })
 
     // const {
@@ -66,8 +67,8 @@ export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoPr
     }
 
     const infoRender = editMode ? (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-                        {/*<TextField*/}
+        <form onSubmit={handleSubmit(onSubmit)} style={{width: '100%'}}>
+            {/*<TextField*/}
             {/*    label="Nickname"*/}
             {/*    value={value}*/}
             {/*    onChange={onChange}*/}
@@ -75,7 +76,7 @@ export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoPr
             {/*    className={style.input}*/}
             {/*    errorMessage={errors.name?.message}*/}
             {/*/>*/}
-                        <ControlledTextField
+            <ControlledTextField
                 name={"nickname"}
                 control={control}
                 label={'nickname'}
@@ -92,24 +93,27 @@ export const PersonalInfo = ({ name, email, avatarSrc,onSubmit }: PersonalInfoPr
         </form>
     ) : (
         // <div>pusto</div>
-        <StaticInfoRender email={email} name={name} editModeCallback={editModeOn} />
+        <StaticInfoRender email={email} name={name} editModeCallback={editModeOn}/>
     )
 
+
     return (
+
         <Card className={style.card}>
             <Typography as="h1" variant="large" className={style.title}>
                 Personal Information
             </Typography>
             <div className={style.avatarContainer}>
                 <div>
-                    <Avatar name={name} src={avatarSrc} className={style.avatar} />
+                    <Avatar name={name} src={avatarSrc} className={style.avatar}/>
                     {!editMode && (
                         <button className={style.editAvatarButton}>
-                            <EditPenSvg />
+                            <EditPenSvg/>
                         </button>
                     )}
                 </div>
             </div>
+
             {infoRender}
         </Card>
     )
@@ -119,11 +123,12 @@ type StaticInfoRenderProps = {
     editModeCallback: () => void
 } & Omit<PersonalInfoProps, 'avatarSrc'>
 
-const StaticInfoRender = ({ email, name, editModeCallback }: StaticInfoRenderProps) => {
+const StaticInfoRender = ({email, name, editModeCallback}: StaticInfoRenderProps) => {
 
     const classNames = {
         editPenSvg: clsx(style.editAvatarButton, style.editNameButton),
-        logoutSvg:clsx(style.button),
+        email: clsx(style.email),
+        logoutSvg: clsx(style.button),
     }
     const logOutHandler = () => {
         alert('You was log out')
@@ -139,19 +144,184 @@ const StaticInfoRender = ({ email, name, editModeCallback }: StaticInfoRenderPro
                     className={classNames.editPenSvg}
                     onClick={editModeCallback}
                 >
-                    <EditPenSvg />
+                    <EditPenSvg/>
                 </button>
             </div>
-            <Typography variant="body2" className={style.email}>
+            <Typography variant="body2" className={classNames.email}>
                 {email}
             </Typography>
-            <Button variant="secondary" className={classNames.logoutSvg} onClick={logOutHandler}>
-                <LogoutSvg />
+            <Button
+                variant="secondary"
+                className={classNames.logoutSvg}
+                onClick={logOutHandler}>
+                <LogoutSvg/>
                 Logout
             </Button>
         </>
     )
 }
+
+
+//----------------------------------------------------------------------------------------------------------------
+// import {useState} from 'react'
+// import {useForm} from 'react-hook-form'
+// import {LogoutSvg} from '@/assets/icons'
+// import {EditPenSvg} from '@/assets/icons/EditPenSvg.tsx'
+// import {Avatar} from '../../ui/avatar'
+// import {Card} from '../../ui/card'
+// import style from './personal-info.module.scss'
+// import {Button, Typography} from "@/components";
+// import ControlledTextField from "@/components/ui/controlled/controlled-textField/controlled-textField.tsx";
+// import {zodResolver} from "@hookform/resolvers/zod";
+// import {z} from "zod";
+// import {personalInfoSchema} from "@/components/profile/personal-info/personalInfoSchema.ts";
+// import {clsx} from "clsx";
+//
+// type FormValues = z.infer<typeof personalInfoSchema>
+// type PersonalInfoProps = {
+//     email: string
+//     name: string
+//     avatarSrc?: string
+//     onSubmit: (data: FormValues) => void
+//     // onlogOut: () => void
+//     // onAvatarChange: (newAvatar: string) => void
+//     // onNameChange: (newName: string) => void
+// }
+//
+// export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoProps) => {
+//     const [editMode, setEditMode] = useState(false)
+//
+//     const updateNicknameHandler = (data: { name: string }) => {
+//         if (data.name === name) {
+//             console.warn('you write the same nickname')
+//
+//             return setEditMode(false)
+//         }
+//         alert('Form was send')
+//         setEditMode(false)
+//     }
+//
+//     // const {
+//     //     control,
+//     //     handleSubmit,
+//     //     formState: { errors },
+//     // } = usePersonalInfoForm(updateNicknameHandler, name)
+//
+//     const {
+//         control,
+//         handleSubmit,
+//         formState: {errors},
+//     } = useForm<FormValues>({
+//         resolver: zodResolver(personalInfoSchema),
+//         defaultValues: {
+//             nickname: 'Yudintsev',
+//         }
+//     })
+//
+//     // const {
+//     //     field: { value, onChange },
+//     // } = useController({
+//     //     name: 'name',
+//     //     control,
+//     //     defaultValue: name,
+//     // })
+//
+//     const editModeOn = () => {
+//         setEditMode(true)
+//     }
+//
+//     const infoRender = editMode ? (
+//         <form onSubmit={handleSubmit(onSubmit)} style={{width: '100%'}}>
+//             {/*<TextField*/}
+//             {/*    label="Nickname"*/}
+//             {/*    value={value}*/}
+//             {/*    onChange={onChange}*/}
+//             {/*    defaultValue={name}*/}
+//             {/*    className={style.input}*/}
+//             {/*    errorMessage={errors.name?.message}*/}
+//             {/*/>*/}
+//             <ControlledTextField
+//                 name={"nickname"}
+//                 control={control}
+//                 label={'nickname'}
+//                 errorMessage={errors.nickname?.message}
+//             />
+//             <Button
+//                 variant="primary"
+//                 fullWidth
+//                 className={style.button + ' ' + style.buttonSave}
+//                 type="submit"
+//             >
+//                 Save Changes
+//             </Button>
+//         </form>
+//     ) : (
+//         // <div>pusto</div>
+//         <StaticInfoRender email={email} name={name} editModeCallback={editModeOn}/>
+//     )
+//
+//     return (
+//         <Card className={style.card}>
+//             <Typography as="h1" variant="large" className={style.title}>
+//                 Personal Information
+//             </Typography>
+//             <div className={style.avatarContainer}>
+//                 <div>
+//                     <Avatar name={name} src={avatarSrc} className={style.avatar}/>
+//                     {!editMode && (
+//                         <button className={style.editAvatarButton}>
+//                             <EditPenSvg/>
+//                         </button>
+//                     )}
+//                 </div>
+//             </div>
+//             {infoRender}
+//         </Card>
+//     )
+// }
+//
+// type StaticInfoRenderProps = {
+//     editModeCallback: () => void
+// } & Omit<PersonalInfoProps, 'avatarSrc'>
+//
+// const StaticInfoRender = ({email, name, editModeCallback}: StaticInfoRenderProps) => {
+//
+//     const classNames = {
+//         editPenSvg: clsx(style.editAvatarButton, style.editNameButton),
+//         logoutSvg: clsx(style.button),
+//     }
+//     const logOutHandler = () => {
+//         alert('You was log out')
+//     }
+//
+//     return (
+//         <>
+//             <div className={style.nameContainer}>
+//                 <Typography as="p" variant="h1" className={style.title}>
+//                     {name}
+//                 </Typography>
+//                 <button
+//                     className={classNames.editPenSvg}
+//                     onClick={editModeCallback}
+//                 >
+//                     <EditPenSvg/>
+//                 </button>
+//             </div>
+//             <Typography variant="body2" className={style.email}>
+//                 {email}
+//             </Typography>
+//             <Button
+//                 variant="secondary"
+//
+//               className={classNames.logoutSvg}
+//                // className={style.button}
+//                 onClick={logOutHandler}>
+//                 <LogoutSvg/>
+//                 Logout
+//             </Button>
+//         </>
+//     )
+// }
 //----------------------------------------------------------------------------------------------------
 //
 // import {useState} from 'react'

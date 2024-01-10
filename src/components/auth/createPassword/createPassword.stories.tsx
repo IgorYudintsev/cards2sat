@@ -5,9 +5,9 @@ import {CreatePassword} from "@/components/auth/createPassword/createPassword";
 const meta = {
   title: 'Auth/CreatePasswordForm',
   component: CreatePassword,
-  argTypes: {
-    onSubmit: {action: 'submitted'},
-  },
+  // argTypes: {
+  //   onSubmit: {action: 'submitted'},
+  // },
   tags: ['autodocs'],
 }satisfies Meta<typeof CreatePassword>
 

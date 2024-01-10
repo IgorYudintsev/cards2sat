@@ -1,1 +1,1 @@
-export * from './check-email.tsx'
+export * from './checkEmail.tsx'
