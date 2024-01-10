@@ -11,20 +11,20 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {personalInfoSchema} from "@/components/profile/personal-info/personalInfoSchema.ts";
 import {clsx} from "clsx";
-import {PATH} from "@/routes";
+
 
 type FormValues = z.infer<typeof personalInfoSchema>
 type PersonalInfoProps = {
     email: string
     name: string
     avatarSrc?: string
-    onSubmit: (data: FormValues) => void
+   // onSubmit: (data: FormValues) => void
     // onlogOut: () => void
     // onAvatarChange: (newAvatar: string) => void
     // onNameChange: (newName: string) => void
 }
 
-export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoProps) => {
+export const PersonalInfo = ({name, email, avatarSrc}: PersonalInfoProps) => {
     const [editMode, setEditMode] = useState(false)
 
     const updateNicknameHandler = (data: { name: string }) => {
@@ -63,11 +63,13 @@ export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoPro
     // })
 
     const editModeOn = () => {
-        setEditMode(true)
+            setEditMode(true)
     }
 
     const infoRender = editMode ? (
-        <form onSubmit={handleSubmit(onSubmit)} style={{width: '100%'}}>
+        <form
+            //onSubmit={handleSubmit(onSubmit)}
+            style={{width: '100%'}}>
             {/*<TextField*/}
             {/*    label="Nickname"*/}
             {/*    value={value}*/}
@@ -77,6 +79,7 @@ export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoPro
             {/*    errorMessage={errors.name?.message}*/}
             {/*/>*/}
             <ControlledTextField
+                className={style.input}
                 name={"nickname"}
                 control={control}
                 label={'nickname'}
@@ -92,13 +95,10 @@ export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoPro
             </Button>
         </form>
     ) : (
-        // <div>pusto</div>
-        <StaticInfoRender email={email} name={name} editModeCallback={editModeOn}/>
+            <StaticInfoRender email={email} name={name} editModeCallback={editModeOn} />
     )
 
-
     return (
-
         <Card className={style.card}>
             <Typography as="h1" variant="large" className={style.title}>
                 Personal Information
@@ -107,7 +107,7 @@ export const PersonalInfo = ({name, email, avatarSrc, onSubmit}: PersonalInfoPro
                 <div>
                     <Avatar name={name} src={avatarSrc} className={style.avatar}/>
                     {!editMode && (
-                        <button className={style.editAvatarButton}>
+                        <button className={style.editAvatarButton}  onClick={() => alert('nedd Add logic')}>
                             <EditPenSvg/>
                         </button>
                     )}
