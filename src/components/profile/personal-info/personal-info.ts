@@ -1,23 +1,16 @@
 import {zodResolver} from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
+import {personalInfoSchema} from "@/components/profile/personal-info/personalInfoSchema.ts";
 
-const schema = z.object({
-    name: z
-        .string()
-        .trim()
-        .min(2, { message: 'Must be 2 or more characters long' })
-        .nonempty('Enter nickname'),
-})
-
-type FormValues = z.infer<typeof schema>
+type FormValues = z.infer<typeof personalInfoSchema>
 
 export const usePersonalInfoForm = (onSubmit: (data: { name: string }) => void, name: string) => {
     const { handleSubmit, ...rest } = useForm<FormValues>({
         defaultValues: {
             name: name,
         },
-        resolver: zodResolver(schema),
+        resolver: zodResolver(personalInfoSchema),
         mode: 'onSubmit',
     })
 
