@@ -50,11 +50,11 @@ export const PersonalInfo = ({name, email, avatarSrc}: PersonalInfoProps) => {
 
     const classNames = {
         input: clsx(style.input),
-        button: clsx(style.button,style.buttonSave),
+        button: clsx(style.button, style.buttonSave),
         avatar: clsx(style.avatar),
         editAvatarButton: clsx(style.editAvatarButton),
         avatarContainer: clsx(style.avatarContainer),
-        title:clsx(style.title)
+        title: clsx(style.title)
     }
 
 
@@ -69,7 +69,6 @@ export const PersonalInfo = ({name, email, avatarSrc}: PersonalInfoProps) => {
             {/*    errorMessage={errors.name?.message}*/}
             {/*/>*/}
             <ControlledTextField
-                className={classNames.input}
                 name={'name'}
                 control={control}
                 label={'nickname'}
@@ -119,7 +118,7 @@ const StaticInfoRender = ({email, name, editModeCallback}: StaticInfoRenderProps
         editPenSvg: clsx(style.editAvatarButton, style.editNameButton),
         email: clsx(style.email),
         logoutSvg: clsx(style.button),
-        title:clsx(style.title)
+        title: clsx(style.title)
     }
     const logOutHandler = () => {
         alert('You was log out')
