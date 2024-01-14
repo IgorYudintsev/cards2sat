@@ -4,6 +4,7 @@ import {Typography} from "@/components";
 import {Avatar} from "@/components/ui/avatar";
 import s from './drop-down-menu.module.scss'
 import {PersonOutlineSvg} from "@/assets/icons/PersonOutlineSvg.tsx";
+import {LogoutSvg} from "@/assets/icons";
 
 
 const meta = {
@@ -45,7 +46,7 @@ export const Primary: Story = {
                     <DropDownMenuIcon onSelect={() => {}} icon={<PersonOutlineSvg/>}>
                         My Profile
                     </DropDownMenuIcon>
-                    <DropDownMenuIcon >Sign Out</DropDownMenuIcon>
+                    <DropDownMenuIcon icon={<LogoutSvg />} >Sign Out</DropDownMenuIcon>
                 </DropDownMenu>
             </div>
         );
