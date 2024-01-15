@@ -51,6 +51,7 @@
   }
 }
 
+
 .secondary {
   @include button;
   background-color: var(--color-secondary);
@@ -62,11 +63,12 @@
   &:hover {
     background-color: var(--color-secondary-hover);
   }
-  &:focus-visible {
+  &:focus {
     border-radius: 0.25rem;
     outline: 2px solid var(--color-info-700);
   }
 }
+
 
 .tertiary {
   @include button;
@@ -85,7 +87,7 @@
     outline: 2px solid var(--color-info-700);
   }
   &:disabled {
-    background-color: no ne;
+    background-color: none;
   }
 }
 

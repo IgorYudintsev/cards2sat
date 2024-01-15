@@ -14,7 +14,7 @@ export const Default: Story = {
     args: {
         open: true,
         title: 'Edit photo',
-        onSubmit: {action: 'submitted'},
+        //onSubmit: {action: 'submitted'},
     },
 }
 
@@ -24,6 +24,7 @@ export const FooterButton = {
             <ModalFooter>
                 <Button variant={'primary'}>Button primary</Button>
                 <Button variant={'secondary'}>Button secondary</Button>
+
             </ModalFooter>
         )
     },
